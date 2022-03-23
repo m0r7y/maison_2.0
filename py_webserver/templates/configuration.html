@@ -1,0 +1,34 @@
+{% extends 'import_this_shit.html' %} {% block body %}
+<form method="POST">
+    <div class="form-group">
+        {% if data %}
+        <h3>Arduino 1</h3>
+        <label for="usr">Serial port :</label>
+        <input type="text" name="device" class="form-control" placeholder={{ data[0] }} maxlength="30">
+        <label for="usr">Bauderate :</label>
+        <input type="text" name="port" class="form-control" placeholder={{ data[1] }} maxlength="10">
+        <h3>Arduino 2</h3>
+        <label for="usr">Serial port :</label>
+        <input type="text" name="device1" class="form-control" placeholder={{ data[2] }} maxlength="30">
+        <label for="usr">Bauderate :</label>
+        <input type="text" name="port1" class="form-control" placeholder={{ data[3] }} maxlength="10">
+        {% else %}
+        <h3>Arduino 1</h3>
+        <label for="usr">Serial port :</label>
+        <input type="text" name="device" class="form-control"  maxlength="30">
+        <label for="usr">Bauderate :</label>
+        <input type="text" name="port" class="form-control"  maxlength="10">
+        <h3>Arduino 2</h3>
+        <label for="usr">Serial port :</label>
+        <input type="text" name="device1" class="form-control"  maxlength="30">
+        <label for="usr">Bauderate :</label>
+        <input type="text" name="port1" class="form-control"  maxlength="10">
+        {% endif %}
+    </div>
+    {% if ses == 1 %}
+    <input type="submit" class="btn btn-primary" value="submit">
+    {% else %}
+    <input disabled type="submit" class="btn btn-primary" value="submit">
+    {% endif %}
+</form>
+{% endblock %}

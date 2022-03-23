@@ -1,0 +1,30 @@
+{% extends 'import_this_shit.html' %} {% block body %}
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-md-3">Du</th>
+      <th>Par</th>
+      <th>Contenu</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for d in data %}
+    <tr>
+      <td>{{d.date_p}}</td>
+      <td>{{d.op}}</td>
+      <td>{{d.contenu}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% if error %}
+<p>{{error}}</p>
+{% endif %}
+<form method="POST">
+  <div class="form-group" >
+    <label for="comment">Contenu :</label>
+    <textarea name="contenu" class="form-control" rows="5" id="comment"></textarea>
+  </div>
+  <input type="submit" class="btn btn-primary" value="submit">
+</form>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'import_this_shit.html' %} {% block body %}
+<h3>Ajout d'utilisateur : </h3>
+<form method="POST">
+  <div class="form-group">
+    <label for="usr">LOGIN :</label>
+    <input type="text" name="nom" class="form-control" id="usr" maxlength="30">
+    <label for="pwd">PASSWORD :</label>
+    <input type="password" name="password" class="form-control" id="pwd" maxlength="30">
+    <label for="usr">PASSWORD VERIFICATION :</label>
+    <input type="password" name="vpassword" class="form-control" id="pwd" maxlength="30">
+  </div>
+  {% if ses == '1' %}
+  <input type="submit" class="btn btn-primary" value="submit">
+  {% else %}
+  <input disabled type="submit" class="btn btn-primary" value="submit">
+  {% endif %}
+</form>
+{% if message %}
+<p>{{ message }}</p>
+{% endif %}
+<h3>Liste des utilisateurs : </h3>
+<form action="delete" method="POST">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in data %}
+      <tr>
+        <td>{{d.id}}</td>
+        <td>{{d.username}}</td>
+        <td>{{d.status}}</td>
+        <td>
+          <input type="checkbox" name="delete" value={{d.username}} />
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% if ses == 1 %}
+  <input type="submit" class="btn btn-danger" value="Delete">
+  {% else %}
+  <input disabled type="submit" class="btn btn-danger" value="Delete">
+  {% endif %}
+</form>
+
+{% if message_d %}
+<p>{{message_d}}</p>
+{% endif %} {% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'import_this_shit.html' %}
+
+{% block body %}
+    <form method="POST" >
+        <div class="form-group">
+            <label for="usr">LOGIN :</label>
+            <input type="text" name="login" class="form-control" id="usr" maxlength="30">
+            <label for="pwd">PASSWORD :</label>
+            <input type="password" name="password" class="form-control" id="pwd" maxlength="30">
+        </div>
+        <input type="submit" class="btn btn-primary" value="submit">
+    </form>
+    <p>{{ error }}</p>
+{% endblock %}
